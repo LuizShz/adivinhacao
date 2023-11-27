@@ -1,0 +1,49 @@
+import random
+print("###########################################")
+print("#############JOGO DE ADIVINHAÇÃO###########")
+print("###########################################")
+
+numero_secreto = random.randrange(1, 101)
+
+print("{1}Facil{2}Medio{3}Dificil")
+total_de_tentativas = int(input("escolha a dificuldade: ")) 
+
+
+ 
+if total_de_tentativas == 1:
+  print("Facil")
+  total_de_tentativas = 20
+elif total_de_tentativas == 2:
+  print("Medio")
+  total_de_tentativas = 10
+elif total_de_tentativas == 3:
+  print("Dificil?")
+  total_de_tentativas = 5
+
+
+for rodada in range(1, total_de_tentativas +1):
+
+
+  print("Tentativa {} de {}".format(total_de_tentativas,rodada))
+  
+  chute_str=(input("Digite um numero de 1 a 100:"))
+  chute= int(chute_str)
+  print("você digitou:{}".format(chute))
+  
+  maior = chute > numero_secreto
+  menor = chute < numero_secreto
+  acertou = chute == numero_secreto
+
+  
+  if(chute == numero_secreto):
+    print("Você acertou")
+    break
+  elif(menor):
+    print ("Voce errou! o seu chute foi menor que o numero secreto")
+  elif(maior):
+    print ("Voce errou! o seu chute foi maior que seu numero secreto")
+
+if (total_de_tentativas == 5):
+  print("o numero secreto é: ",numero_secreto)
+  
+print("Fim de Jogo")
